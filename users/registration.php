@@ -48,6 +48,14 @@ if(isset($_POST['submit'])){
     <meta name="description" content="">
     <meta name="author" content="Dashboard">
     <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
+	  <script src="https://www.google.com/recaptcha/api.js?render=6LfybeoUAAAAAGwZDihEaM1HR29MCtQYU9LQU3n1"></script>
+<script>
+grecaptcha.ready(function() {
+    grecaptcha.execute('6LfybeoUAAAAAGwZDihEaM1HR29MCtQYU9LQU3n1', {action: 'homepage'}).then(function(token) {
+       ...
+    });
+});
+</script>
 
     <title>CMS | User Registration</title>
     <link href="assets/css/bootstrap.css" rel="stylesheet">
