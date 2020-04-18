@@ -178,7 +178,7 @@ grecaptcha.ready(function() {
 		            
 		            <div class="registration">
 		                Already Registered<br/>
-		                <a class="" href="index.php">
+		                <a class="" href="login.php">
 		                   Sign in
 		                </a>
 		            </div>
