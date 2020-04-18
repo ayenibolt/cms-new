@@ -1,17 +1,43 @@
 <?php
 include('includes/config.php');
 error_reporting(0);
-if(isset($_POST['submit']))
-{
-	$fullname=$_POST['fullname'];
-	$email=$_POST['email'];
-	// $password=md5($_POST['password']);
-	$password = password_hash($_POST['password'], PASSWORD_BCRYPT);
-	$contactno=$_POST['contactno'];
-	$status=1;
-	$query=mysqli_query($con,"insert into users(fullName,userEmail,password,contactNo,status) values('$fullname','$email','$password','$contactno','$status')");
-	$msg="Registration successfull. Now You can login !";
-}
+
+if(isset($_POST['submit'])){
+	//grab all user input
+	$fullname = mysqli_real_escape_string($con, $_POST['fullname']);
+	$email = mysqli_real_escape_string($con, $_POST['email']);
+	$password = mysqli_real_escape_string($con, $_POST['password']);
+	$conp = mysqli_real_escape_string($con, $_POST['confirm-password']);
+	$conno = mysqli_real_escape_string($con, $_POST['contactno']);
+	$phash = password_hash($password, PASSWORD_BCRYPT);
+		
+	//check if form fields are empty
+	if($fullname == '' || $email == '' || $password == '' || $conp == '' || $conno == ''){
+		echo '<div style="color: red; text-align: center;">Please fill the form</div>';
+	//add user information to database and log user in
+	}
+	if($password != $conp){
+		echo 'Passwords do not match.'; 
+	}else{	
+		$sql = "SELECT `email` FROM `users` WHERE `fullname` = '$fullname'";
+		$sql_run = mysqli_query($con, $sql);
+		$sql_results = mysqli_num_rows($sql_run);
+			if($sql_results > 0){
+				echo 'Email already exists. Please enter another email address';
+			}else{
+				$stats = 1;
+				
+				$query = "INSERT INTO `users` (`id`, `fullName`, `userEmail`, `password`, `contactNo`, `regDate`, `status`)
+					VALUES (NULL, '$fullname', '$email', '$phash', '$conno', NULL, '$stats')";
+				if($query_run = mysqli_query($con, $query)){
+					echo 'Registration successful. Please Login.';
+					header('location:registration.php');
+				}else{
+					echo 'Something went wrong';
+				}
+			}
+	}			
+}	
 ?>
 
 <!DOCTYPE html>
@@ -31,7 +57,7 @@ if(isset($_POST['submit']))
     <script>
 		function submit(){
 			let name = $("#fullname").val();
-			let contact = $("#contact").val();
+			let contact = $("#contactno").val();
 			let password = $("#password").val();
 			let confirm = $("#confirm-password").val();
 
@@ -70,7 +96,7 @@ if(isset($_POST['submit']))
 			}
 
 			function contactVal(){
-			let contact = $("#contact").val();
+			let contact = $("#contactno").val();
 			let pattern = /^\d{10}$/;
 				if(contact.match(pattern)){
 					let data = "<span style='display:none'></span>";
@@ -85,8 +111,8 @@ if(isset($_POST['submit']))
 
 			function checkPassword(){
 				let password = $("#password").val();
-				if(password.length < 5 ){
-					let data = "<span style='color:red'> Passwords must be more than 5 characters</span>";
+				if(password.length < 8 ){
+					let data = "<span style='color:red'> Passwords must be more than 8 characters</span>";
 					$("#password-status").html(data);
 				}else{
 				let data = "<span style='display:none'></span>";
@@ -135,7 +161,7 @@ if(isset($_POST['submit']))
 					<input type="password" class="form-control" id="confirm-password" onBlur="matchPassword()" placeholder="Confirm Password" required="required" name="confirm-password"><br>
 					<span id="confirm-status" style="font-size:12px;"></span>
 					<br>
-		             <input type="text" class="form-control" id="contact" maxlength="10" name="contactno" onBlur="contactVal()" placeholder="Contact no" required="required" autofocus>
+		             <input type="text" class="form-control" id="contactno" maxlength="10" name="contactno" onBlur="contactVal()" placeholder="Contact no" required="required" autofocus>
 				 		<span id="contactVal-status" style="font-size:12px;"></span>
 		            <br>
 		            

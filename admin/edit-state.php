@@ -43,7 +43,7 @@ $_SESSION['msg']="State info Updated !!";
 
 						<div class="module">
 							<div class="module-head">
-								<h3>State</h3>
+								<h3>Department</h3>
 							</div>
 							<div class="module-body">
 
@@ -66,7 +66,7 @@ while($row=mysqli_fetch_array($query))
 {
 ?>									
 <div class="control-group">
-<label class="control-label" for="basicinput">State Name</label>
+<label class="control-label" for="basicinput">Department Name</label>
 <div class="controls">
 <input type="text" placeholder="Enter category Name"  name="state" value="<?php echo  htmlentities($row['stateName']);?>" class="span8 tip" required>
 </div>

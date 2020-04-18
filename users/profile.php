@@ -107,14 +107,14 @@ $errormsg="Profile not updated !!";
  <div class="col-sm-4">
 <input type="text" name="contactno" required="required" value="<?php echo htmlentities($row['contactNo']);?>" class="form-control">
 </div>
-<label class="col-sm-2 col-sm-2 control-label">Address </label>
+<!-- <label class="col-sm-2 col-sm-2 control-label">Address </label>
 <div class="col-sm-4">
-<textarea  name="address" required="required" class="form-control"><?php echo htmlentities($row['address']);?></textarea>
-</div>
+<textarea  name="address" required="required" class="form-control"><?php //echo htmlentities($row['address']);?></textarea>
+</div> -->
 </div>
 
 <div class="form-group">
-<label class="col-sm-2 col-sm-2 control-label">State</label>
+<label class="col-sm-2 col-sm-2 control-label">Department</label>
 <div class="col-sm-4">
 <select name="state" required="required" class="form-control">
 <option value="<?php echo htmlentities($row['State']);?>"><?php echo htmlentities($st=$row['State']);?></option>
@@ -134,18 +134,18 @@ while ($rw=mysqli_fetch_array($sql)) {
 
 </select>
 </div>
-<label class="col-sm-2 col-sm-2 control-label">Country </label>
+<!-- <label class="col-sm-2 col-sm-2 control-label">Country </label>
 <div class="col-sm-4">
-<input type="text" name="country" required="required" value="<?php echo htmlentities($row['country']);?>" class="form-control">
-</div>
+<input type="text" name="country" required="required" value="<?php //echo htmlentities($row['country']);?>" class="form-control">
+</div> -->
 </div>
 
 
 <div class="form-group">
-<label class="col-sm-2 col-sm-2 control-label">Pincode</label>
+<!-- <label class="col-sm-2 col-sm-2 control-label">Pincode</label>
 <div class="col-sm-4">
-<input type="text" name="pincode" maxlength="6" required="required" value="<?php echo htmlentities($row['pincode']);?>" class="form-control">
-</div>
+<input type="text" name="pincode" maxlength="6" required="required" value="<?php //echo htmlentities($row['pincode']);?>" class="form-control">
+</div> --> 
 <label class="col-sm-2 col-sm-2 control-label">Reg Date </label>
 <div class="col-sm-4">
 <input type="text" name="regdate" required="required" value="<?php echo htmlentities($row['regDate']);?>" class="form-control" readonly>
@@ -153,21 +153,21 @@ while ($rw=mysqli_fetch_array($sql)) {
 </div>
 
 
-<div class="form-group">
+<!-- <div class="form-group">
 <label class="col-sm-2 col-sm-2 control-label">User Photo</label>
 <div class="col-sm-4">
-<?php $userphoto=$row['userImage'];
-if($userphoto==""):
+<?php// $userphoto=$row['userImage'];
+//if($userphoto==""):
 ?>
 <img src="userimages/noimage.png" width="256" height="256" >
 <a href="update-image.php">Change Photo</a>
-<?php else:?>
-	<img src="userimages/<?php echo htmlentities($userphoto);?>" width="256" height="256">
+<?php //else:?>
+	<img src="userimages/<?php //echo htmlentities($userphoto);?>" width="256" height="256">
 	<a href="update-image.php">Change Photo</a>
-<?php endif;?>
+<?php //endif;?>
 </div>
 
-</div>
+</div> -->
 
 
 

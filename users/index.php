@@ -51,7 +51,7 @@ if(isset($_POST['change']))
 {
    $email=$_POST['email'];
     $contact=$_POST['contact'];
-    $password=md5($_POST['password']);
+    $password=password_hash($_POST['password'], PASSWORD_BCRYPT);
 $query=mysqli_query($con,"SELECT * FROM users WHERE userEmail='$email' and contactNo='$contact'");
 $num=mysqli_fetch_array($query);
 if($num>0)

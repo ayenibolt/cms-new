@@ -5,18 +5,27 @@ include("include/config.php");
 if(isset($_POST['submit']))
 {
 	$username=$_POST['username'];
-	$password=md5($_POST['password']);
-$ret=mysqli_query($con,"SELECT * FROM admin WHERE username='$username' and password='$password'");
+	// $password=password_hash($_POST['password']);
+$ret=mysqli_query($con,"SELECT * FROM admin WHERE username='$username'");
 $num=mysqli_fetch_array($ret);
 if($num>0)
 {
-$extra="change-password.php";//
-$_SESSION['alogin']=$_POST['username'];
-$_SESSION['id']=$num['id'];
-$host=$_SERVER['HTTP_HOST'];
-$uri=rtrim(dirname($_SERVER['PHP_SELF']),'/\\');
+	if (password_verify($_POST['password'], $num['password'])) {
+		$extra="manage-users.php";
+		$_SESSION['alogin']=$_POST['username'];
+		$_SESSION['id']=$num['id'];
+		$host=$_SERVER['HTTP_HOST'];
+		$uri=rtrim(dirname($_SERVER['PHP_SELF']),'/\\');
+		header("location:http://$host$uri/$extra");
+		exit();
+	}else{
+		$_SESSION['errmsg']="Invalid password";
+$extra="index.php";
+$host  = $_SERVER['HTTP_HOST'];
+$uri  = rtrim(dirname($_SERVER['PHP_SELF']),'/\\');
 header("location:http://$host$uri/$extra");
 exit();
+	}
 }
 else
 {

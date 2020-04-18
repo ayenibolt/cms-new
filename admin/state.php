@@ -32,7 +32,7 @@ if(isset($_GET['del']))
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Admin| State</title>
+	<title>Admin| Department</title>
 	<link type="text/css" href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<link type="text/css" href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
 	<link type="text/css" href="css/theme.css" rel="stylesheet">
@@ -51,7 +51,7 @@ if(isset($_GET['del']))
 
 						<div class="module">
 							<div class="module-head">
-								<h3>State</h3>
+								<h3>Department</h3>
 							</div>
 							<div class="module-body">
 
@@ -77,9 +77,9 @@ if(isset($_GET['del']))
 			<form class="form-horizontal row-fluid" name="Category" method="post" >
 									
 <div class="control-group">
-<label class="control-label" for="basicinput">State Name</label>
+<label class="control-label" for="basicinput">Department Name</label>
 <div class="controls">
-<input type="text" placeholder="Enter State Name"  name="state" class="span8 tip" required>
+<input type="text" placeholder="Enter Department Name"  name="state" class="span8 tip" required>
 </div>
 </div>
 
@@ -103,14 +103,14 @@ if(isset($_GET['del']))
 
 	<div class="module">
 							<div class="module-head">
-								<h3>Manage States</h3>
+								<h3>Manage Department</h3>
 							</div>
 							<div class="module-body table">
 								<table cellpadding="0" cellspacing="0" border="0" class="datatable-1 table table-bordered table-striped	 display" width="100%">
 									<thead>
 										<tr>
 											<th>#</th>
-											<th>State</th>
+											<th>Department</th>
 											<th>Description</th>
 											<th>Creation date</th>
 											<th>Last Updated</th>
