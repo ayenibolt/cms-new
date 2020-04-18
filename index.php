@@ -33,10 +33,10 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="https://jidescms.herokuapp.com/cms/users/">User Login</a>
+                        <a href="https://jidescms.herokuapp.com/users/">User Login</a>
                     </li>
                     <li>
-                        <a href="https://jidescms.herokuapp.com/cms/users/registration.php">User Registration</a>
+                        <a href="https://jidescms.herokuapp.com/users/registration.php">User Registration</a>
                     </li>
 <!--                     <li>
                         <a href="http://localhost/cms/admin/">admin</a>
