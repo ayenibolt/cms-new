@@ -27,20 +27,20 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Complaint Management Sysytem</a>
+                <a class="navbar-brand" href="#">Complaint Management System</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="http://localhost/cms/users/">User Login</a>
+                        <a href="https://jidescms.herokuapp.com/cms/users/">User Login</a>
                     </li>
                     <li>
-                        <a href="http://localhost/cms/users/registration.php">User Registration</a>
+                        <a href="https://jidescms.herokuapp.com/cms/users/registration.php">User Registration</a>
                     </li>
-                    <li>
+<!--                     <li>
                         <a href="http://localhost/cms/admin/">admin</a>
-                    </li>
+                    </li> -->
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
